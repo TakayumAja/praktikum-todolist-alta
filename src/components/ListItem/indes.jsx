@@ -1,15 +1,13 @@
 import React from "react";
 import style from "./style.module.css";
 
-const ListItem = ({ items, handleDelete }) => {
+const ListItem = ({ data, handleDelete }) => {
   return (
     <ul>
-      {items.map((item) => (
-        <div className={style.item}>
+      {data.map((item) => (
+        <div className={style.item} key={item.id}>
           <input type="checkbox" className={style.ceked} />
-          <li key={item.id} className={style.list}>
-            {item.title}
-          </li>
+          <li className={style.list}>{item.title}</li>
           <button
             className={style.delete}
             onClick={() => handleDelete(item.id)}
