@@ -1,8 +1,14 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addTodo } from "../../store/Form";
 import ListItem from "../ListItem/indes";
 import style from "./style.module.css";
 
-const Form = ({ input, data, setInput, setData }) => {
+const Form = ({ input, setInput }) => {
+  const dispatch = useDispatch();
+
+  const todoList = useSelector((state) => state.todolist.value);
+
   const handleChange = (e) => {
     const newInput = e.target.value;
     setInput(newInput);
@@ -10,29 +16,16 @@ const Form = ({ input, data, setInput, setData }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (input !== "") {
-      const titleInput = {
-        id: Math.random(),
-        title: input,
-        complited: false,
-      };
 
-      const titleNew = [...data];
-      titleNew.push(titleInput);
+    const titleInput = {
+      id: todoList[todoList.length - 1].id + 1,
+      title: input,
+      complited: false,
+    };
 
-      setData(titleNew);
+    dispatch(addTodo(titleInput));
 
-      setInput([]);
-    } else {
-      alert("Masukkan Inputan");
-    }
-  };
-
-  const handleDelete = (id) => {
-    const items = [...data];
-    const ItemUpdate = items.filter((item) => item.id !== id);
-
-    setData(ItemUpdate);
+    setInput("");
   };
 
   return (
@@ -46,7 +39,7 @@ const Form = ({ input, data, setInput, setData }) => {
         />
         <button className={style.submit}>Submit</button>
       </form>
-      <ListItem data={data} handleDelete={handleDelete} />
+      <ListItem />
     </div>
   );
 };

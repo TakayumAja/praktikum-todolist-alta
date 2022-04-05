@@ -1,0 +1,37 @@
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 4rem;
+  text-decoration: underline;
+  margin-bottom: 1.5rem;
+}
+
+.warning {
+  color: red;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.btnHome {
+  padding: 15px 20px;
+  border-radius: 0.5rem;
+  outline: none;
+  background-color: rgb(47, 47, 235);
+  border: 1px solid rgb(86, 100, 230);
+}
+
+.btnHome a {
+  color: white;
+  font-size: 1rem;
+  text-decoration: none;
+}
+
+.btnHome a:hover {
+  text-decoration: underline;
+}

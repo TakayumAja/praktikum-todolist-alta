@@ -1,16 +1,20 @@
 import React from "react";
-import style from "./style.module.css";
+
+/** React Router */
 import { Link } from "react-router-dom";
+
+/** Style */
+import style from "./style.module.css";
 
 const Notfound = () => {
   return (
-    <div>
-      <h1>Page Not Found</h1>
-      <p>
-        <strong>Opps! Smoething went wrong!</strong>
+    <div className={style.wrapper}>
+      <h1 className={style.title}>Page Not Found</h1>
+      <p className={style.warning}>
+        <strong>Opps! Something went wrong!</strong>
       </p>
 
-      <button>
+      <button className={style.btnHome}>
         <Link to="/">Return To Home</Link>
       </button>
     </div>

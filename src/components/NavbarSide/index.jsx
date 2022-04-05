@@ -1,5 +1,9 @@
 import React from "react";
+
+/** React Router */
 import { Link } from "react-router-dom";
+
+/** Style */
 import style from "./style.module.css";
 
 const NavbarSide = () => {
@@ -13,7 +17,7 @@ const NavbarSide = () => {
           <Link to="/about-app">About App</Link>
         </li>
         <li className={style.item}>
-          <Link to="/about-app">About Author</Link>
+          <Link to="/about-author">About Author</Link>
         </li>
       </ul>
     </div>
